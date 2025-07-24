@@ -1,0 +1,47 @@
+1. 
+
+If a problem has explicit constraints such as:
+    Sum greater than or less than k
+    Limits on what is contained, such as the maximum of k unique elements or no duplicates allowed
+
+And/or asks for:
+
+    Minimum or maximum length
+    Number of subarrays/substrings
+    Max or minimum sum
+
+Think about a sliding window. Note that not all problems with these characteristics should be solved with a sliding window, and not all sliding window problems have these characteristics. These characteristics should only be used as a general guideline.
+
+If a problem's input is an integer array and you find yourself needing to calculate multiple subarray sums, consider building a prefix sum.
+
+The size of a subarray between i and j (inclusive) is j - i + 1. This is also the number of subarrays that end at j, starting from i or later.
+
+----------
+
+2.
+
+SUBARRAY or SUBSTRING:
+- Contiguous
+- number of subarrays => r - l + 1
+- Order matters
+
+SUBSEQUENCE:
+- For example, subsequences of [1, 2, 3, 4] include: [1, 3], [4], [], [2, 3], but not [3, 2], [5], [4, 1].
+- Non-contiguous
+- Order matters
+
+SUBSET = order doesn't matter
+- For example, given [1, 2, 3, 4], all of these are subsets: [3, 2], [4, 1, 2], [1]. 
+- Note: subsets that contain the same elements are considered the same, so [1, 2, 4] is the same subset as [4, 1, 2].
+- A useful thing that you can do when dealing with subsets that you can't do with subsequences is that you can sort the input, since the order doesn't matter.
+- Order doesn't matter
+
+STRING
+- adding to a string is usually O(n^2), you have to copy the string each time
+
+----------
+
+3. If we want the sum of the subarray from i to j (inclusive), then the answer is prefix[j] - prefix[i - 1], or prefix[j] - prefix[i] + nums[i] if you don't want to deal with the out of bounds case when i = 0.
+
+# Without the prefix sum, answering each query would be O(n) in the worst case, where nn is the length of nums. If m = queries.length, that would give a time complexity of O(n∗m). With the prefix sum, it costs O(n) to build, but then answering each query is O(1)O(1). This gives a much better time complexity of O(n+m). We use O(n) space to build the prefix sum.
+

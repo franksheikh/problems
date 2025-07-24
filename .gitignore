@@ -1,0 +1,16 @@
+.DS_Store
+node_modules
+_python.txt
+
+old_py
+
+test.*
+test.py
+test.ts
+review.py
+leetnotes/*.py
+
+xproblems
+xsql
+xleetnotes
+x/**/*/
