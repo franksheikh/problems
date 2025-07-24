@@ -1,0 +1,13 @@
+HASH MAPS
+
+1. The biggest disadvantage of hash maps is that for smaller input sizes, they can be slower due to overhead. Because big O ignores constants, the O(1) time complexity can sometimes be deceiving - it's usually something more like O(10) because every key needs to go through the hash function, and there can also be collisions, which we will talk about in the next section.
+
+2. Hash tables can also take up more space. Dynamic arrays are actually fixed-size arrays that resize themselves when they go beyond their capacity
+
+3. Resizing a hash table is much more expensive because every existing key needs to be re-hashed, and also a hash table may use an array that is significantly larger than the number of elements stored, resulting in a huge waste of space. The point is, when you don't know how many elements you need to store, arrays are more flexible with resizing and not wasting space.
+
+4. Handle collisions through chaining
+- When using chaining, we store linked lists inside the hash map's array instead of the elements themselves. The linked list nodes store both the key and the value. If there are collisions, the collided key-value pairs are linked together in a linked list. Then, when trying to access one of these key-value pairs, we traverse through the linked list until the key matches.
+
+5.  How can we design our hash map to minimize collisions? 
+- The most important thing is that the size of your hash table's array and modulus is a prime number. Prime numbers near significant magnitudes that are common to use are:
