@@ -1,3 +1,6 @@
+# Space complexity: O(1) => Bounded by alphabet size
+# Time complexity: O(n)
+
 from collections import Counter
 
 class Solution:
@@ -8,6 +11,10 @@ class Solution:
         for char in t:
             if char in hashmap:
                 hashmap[char] -= 1
-            if hashmap[char] == 0:
-                del hashmap[char]
-        return len(hashmap) == 0
+                if hashmap[char] == 0:
+                    del hashmap[char]
+        return len(hashmap) == 0 
+
+
+        
+        
