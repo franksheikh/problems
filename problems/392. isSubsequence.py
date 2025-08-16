@@ -2,19 +2,11 @@
 # Space O(1)
 class Solution:
     def isSubsequence(self, s: str, t: str) -> bool:
-        ls = 0
-        lt = 0
-        t_len = len(t)
-        s_len = len(s)
-
-        if s_len > t_len:
-            return False
-
-        while lt < t_len:
-            if ls == s_len:
-                return True
-            if s[ls] == t[lt]:
-                ls += 1
-            lt += 1
+        i = 0
+        j = 0
         
-        return ls == s_len
+        while i < len(s) and j < len(t):
+            if s[i] == t[j]:
+                i += 1
+            j += 1
+        return i == len(s)
