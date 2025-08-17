@@ -33,13 +33,27 @@ else if loser not in losers:
 from collections import defaultdict 
 class Solution:
     def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
+        losers = defaultdict(int)
+
+        for match in matches:
+            winner, loser = match
+            losers[loser] -= 1
+
+            if winner not in losers:
+                losers[winner] = 0
+        
+        return [
+            sorted([k for k,v in losers.items() if v == 0]),
+            sorted([k for k,v in losers.items() if v == -1])
+        ]
+    def findWinners(self, matches: List[List[int]]) -> List[List[int]]:
         winners = set()
         losers = defaultdict(int)
 
         for match in matches:
             winner, loser = match
             
-            losers[loser] = losers.get(loser,0) + 1
+            losers[loser] += 1
 
             if winner not in losers:
                 winners.add(winner)
@@ -48,8 +62,8 @@ class Solution:
         
         return [
             sorted(list(winners)),
-            sorted(list({
-                k: v for k,v in losers.items() if v == 1
-            }))
+            sorted([
+                k for k,v in losers.items() if v == 1
+            ])
         ]
         
