@@ -1,0 +1,12 @@
+class Solution:
+    def findMaxLength(self, nums: List[int]) -> int:
+        counts = defaultdict(int,{0:-1})    
+        curr = 0
+        max_l = 0
+        for i,n in enumerate(nums):
+            curr += 1 if n == 1 else -1
+            if curr in counts:
+                max_l = max(max_l, i - counts[curr])
+            else:
+                counts[curr] = i
+        return max_l
