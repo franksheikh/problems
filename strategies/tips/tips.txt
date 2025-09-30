@@ -45,3 +45,7 @@ STRING
 
 # Without the prefix sum, answering each query would be O(n) in the worst case, where nn is the length of nums. If m = queries.length, that would give a time complexity of O(n∗m). With the prefix sum, it costs O(n) to build, but then answering each query is O(1)O(1). This gives a much better time complexity of O(n+m). We use O(n) space to build the prefix sum.
 
+----------
+
+# The difference between any two prefix sums represents a subarray.
+
