@@ -1,3 +1,4 @@
+# 1
 class Solution:
     def sumDigits(self,n):
         digit_sum = 0
@@ -26,3 +27,25 @@ class Solution:
         
         return max_v
             
+
+# 2
+class Solution:
+    def sum_digits(self, num):
+        s = 0
+        while num:
+            s += num % 10
+            num //= 10
+        return s
+    
+    def maximumSum(self, nums: List[int]) -> int:
+        o = defaultdict(int)
+        max_sum = -1
+
+        for n in nums:
+            key = self.sum_digits(n)
+            if key in o:
+                max_sum = max(max_sum, o[key] + n)
+            o[key] = max(o[key], n)
+        return max_sum
+
+        
