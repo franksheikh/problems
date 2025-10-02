@@ -4,6 +4,16 @@
 #         self.val = x
 #         self.next = None
 
+'''
+
+1 -> 3 -> 5 -> 7
+     ^         |
+     |         |
+	 |_________|
+
+s
+    f
+'''
 class Solution:
     def hasCycle(self, head: Optional[ListNode]) -> bool:
         if not head or not head.next:
