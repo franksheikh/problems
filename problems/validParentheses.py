@@ -64,3 +64,25 @@ class Solution:
             
             
         return len(l) == 0
+    
+
+# Version 3
+class Solution:
+    def isValid(self, s: str) -> bool:
+        chars = {
+            '[':']',
+            '{':'}',
+            '(':')'
+        }
+
+        stack = []
+
+        for c in s:
+            if c in chars:
+                stack.append(c)
+            else:
+                if not stack:
+                    return False
+                elif chars[stack.pop()] != c:
+                    return False
+        return len(stack) == 0
