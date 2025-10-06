@@ -1,4 +1,3 @@
-s = "/.../home//foo/../"
+t = tuple([1,2])
 
-ns = s.split("/")
-print('ns',ns)
+print('t',t[1])

@@ -1,3 +1,8 @@
+'''
+Time - O(1)
+Space - O(n)
+
+'''
 class MovingAverage:
 
     def __init__(self, size: int):
