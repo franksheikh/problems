@@ -45,3 +45,33 @@ class Solution:
             q.append(tuple([temp,i]))
         
         return o
+
+
+'''
+[73,74,75,71,69,72,76,73]
+                        i 
+
+stack = [
+    3
+    2
+]
+
+ans = [
+    1, 1
+]
+
+Official Solution
+'''
+
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        stack = [1, 2, ]
+        answer = [0] * len(temperatures)
+        
+        for i in range(len(temperatures)):
+            while stack and temperatures[stack[-1]] < temperatures[i]:
+                j = stack.pop()
+                answer[j] = i - j
+            stack.append(i)
+        
+        return answer
