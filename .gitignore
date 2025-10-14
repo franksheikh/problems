@@ -3,7 +3,7 @@ node_modules
 _python.txt
 
 old_py
-
+_.py
 test.*
 test.py
 test.ts
