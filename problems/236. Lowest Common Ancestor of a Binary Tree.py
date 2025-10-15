@@ -6,6 +6,7 @@
 #         self.right = None
 
 # Time - O(n) - might have to go down the entire left and right side, or is just straight line
+#             - each is visited at most once
 # Space - O(n) - worst-case n recursive calls added to the call stack
 
 class Solution:
