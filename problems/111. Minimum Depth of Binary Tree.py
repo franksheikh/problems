@@ -7,7 +7,6 @@
 #         self.left = left
 #         self.right = right
 class Solution:
-
     def minDepth(self, root: Optional[TreeNode], depth = 0) -> int:
         local_min = inf
         if not root:
