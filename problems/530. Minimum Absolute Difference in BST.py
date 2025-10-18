@@ -14,9 +14,11 @@ class Solution:
             if not node:
                 return
             dfs(node.left)
+        
+            if seen:
+                min_diff = min(min_diff, abs(node.val - seen[-1]))
+                seen.pop()
             seen.append(node.val)
-            if len(seen) > 1:
-                min_diff = min(min_diff, abs(seen[-1] - seen[-2]))
             dfs(node.right)
         dfs(root)
         return min_diff
