@@ -1,1 +1,4 @@
-print(1 < 2 < 3)
+seen = set()
+
+seen.update([1,2])
+print('seen',seen)
