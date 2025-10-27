@@ -1,17 +1,9 @@
 '''
-(
-    1: (2)
-    2: (1)
-    3: []
-)
 
-seen = (
-    1,
-    2
-)
-
-len - len(seen) / 2 = 2
-
+Time - O(n + e (edges)) -> O(n), no, O(nxn) to build the hash map from an adjacency matrix
+- We always iterated over the entire matrix to build the graph.
+Space - O(n + e). 
+- Hash map only grows if the edges actually exist.
 
 '''
 
