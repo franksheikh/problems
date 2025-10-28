@@ -1,3 +1,11 @@
+'''
+
+Time - O (n x m)
+Space - O(n x m)
+- Each recursive call adds a frame to the call stack
+
+'''
+
 class Solution:
     def numIslands(self, grid: List[List[str]]) -> int:
         # y, x
