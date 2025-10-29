@@ -31,3 +31,24 @@ class Solution:
 
 
         
+'''
+More optimized
+'''
+
+class Solution:
+    def canVisitAllRooms(self, rooms: List[List[int]]) -> bool:
+        n = len(rooms)
+        seen = set({0})
+
+        def dfs(room):
+            for key in rooms[room]:
+                if key not in seen:
+                    seen.add(key)
+                    dfs(key)
+
+        seen.add(0)
+        dfs(0)
+                
+        return len(seen) == n
+
+        
