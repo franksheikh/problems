@@ -1,3 +1,13 @@
+'''
+With BFS, every time we visit a node, it is guaranteed that we reached it in the fewest steps possible.
+
+Each level has the same distance from the start (0, 0) if you were to take the optimal path.
+
+The first time we visit a node with BFS, we know we must have reached it with the minimum possible steps.
+
+Each while loop = one level
+'''
+
 class Solution:
     def shortestPathBinaryMatrix(self, grid: List[List[int]]) -> int:
         seen = set()
