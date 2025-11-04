@@ -6,6 +6,9 @@ Each level has the same distance from the start (0, 0) if you were to take the o
 The first time we visit a node with BFS, we know we must have reached it with the minimum possible steps.
 
 Each while loop = one level
+
+Time - O(n^2) -> for the total number of nodes, in case every node is 0
+Space - O(n^2) -> since we might have to add onto our queue every node if every node is 0
 '''
 
 class Solution:

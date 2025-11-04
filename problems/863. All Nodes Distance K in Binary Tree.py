@@ -24,7 +24,7 @@ class Solution:
         q = collections.deque([target])
         d = 0
 
-        while q:
+        while q and d < k:
             n = len(q)
 
             for _ in range(n):
@@ -43,6 +43,54 @@ class Solution:
             d += 1
         
         return a
+
+''' 
+Optimized
+'''
+
+
+#
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+        seen = set([target])
+
+        def dfs(node,parent):
+            if not node:
+                return
+            
+            node.parent = parent
+
+            dfs(node.left, node)
+            dfs(node.right,node)
+        
+        dfs(root, None)
+        
+        a = []
+
+        q = collections.deque([target])
+        d = 0
+
+        while q and d < k:
+            n = len(q)
+
+            for _ in range(n):
+                node = q.popleft()
+
+                for neighbor in [node.left,node.right,node.parent]:
+                    if neighbor and neighbor not in seen:
+                        seen.add(neighbor)
+                        q.append(neighbor)
+
+            d += 1
+        
+        return [v.val for v in q]
 
 
 
