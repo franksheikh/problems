@@ -5,6 +5,41 @@
 #         self.left = None
 #         self.right = None
 
+# 2
+class Solution:
+    def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
+        def dfs(node, parent):
+            if not node:
+                return
+            node.parent = parent
+            dfs(node.left, node)
+            dfs(node.right, node)
+        dfs(root, None)
+
+        seen = set()
+
+        q = collections.deque([target])
+        d = 0
+
+        while q and d < k:
+            n = len(q)
+            for _ in range(n):
+                node = q.popleft()
+
+                if not node or node.val in seen:
+                    continue
+                
+                seen.add(node.val)
+                  
+                for neighbor in [node.parent, node.left, node.right]:
+                    if neighbor and neighbor.val not in seen:
+                        q.append(neighbor)
+            d += 1
+        
+        return [v.val for v in q]
+
+# 1
+
 class Solution:
     def distanceK(self, root: TreeNode, target: TreeNode, k: int) -> List[int]:
         seen = set()
