@@ -23,12 +23,8 @@ class Solution:
         while q:
             row, col, current_obstacles, current_steps = q.popleft()
 
-            if current_obstacles > k:
-                continue
-
             if row == n - 1 and col == m - 1:
                 return current_steps
-            
             
             for dY, dX in dirs:
                 nX = col + dX
@@ -37,7 +33,8 @@ class Solution:
                 is_valid_next = valid(nY, nX)
                 if is_valid_next and grid[nY][nX] == 1:
                     obstacle_count += 1
-
+                if obstacle_count > k:
+                    continue
                 if not (nY, nX, obstacle_count) in seen and is_valid_next:
                     seen.add((nY, nX, obstacle_count))
                     q.append((nY, nX, obstacle_count, current_steps + 1))
